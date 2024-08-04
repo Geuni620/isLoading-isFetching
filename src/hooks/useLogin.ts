@@ -2,10 +2,12 @@ import { Session } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
 
 import { supabase } from '@/utils/supabase';
+import { useNavigate } from 'react-router-dom';
 
 const PROVIDER = 'github';
 
 export const useLogin = () => {
+  const navigate = useNavigate();
   const [session, setSession] = useState<Session | null>(null);
 
   const onSessionChange = (session: Session | null) => {
@@ -23,6 +25,8 @@ export const useLogin = () => {
 
   const onLogoutClick = async () => {
     await supabase.auth.signOut();
+
+    return navigate('/');
   };
 
   useEffect(() => {

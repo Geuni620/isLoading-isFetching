@@ -1,9 +1,17 @@
-import { Dashboard } from '@/components/dashboard';
+import { useEffect } from 'react';
 import { Login } from '@/components/login';
 import { useLogin } from '@/hooks/useLogin';
+import { useNavigate } from 'react-router-dom';
 
 export const App = () => {
+  const navigate = useNavigate();
   const { session, onLoginClick } = useLogin();
+
+  useEffect(() => {
+    if (session) {
+      navigate('/home');
+    }
+  }, [session, navigate]);
 
   if (!session)
     return (
@@ -12,5 +20,5 @@ export const App = () => {
       </div>
     );
 
-  return <Dashboard />;
+  return null;
 };

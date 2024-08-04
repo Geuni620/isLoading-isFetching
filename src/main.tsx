@@ -5,6 +5,38 @@ import ReactDOM from 'react-dom/client';
 import { Toaster } from 'sonner';
 import { App } from 'src/App';
 import { QueryProvider } from 'src/components/common/QueryProvider';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Dashboard } from '@/components/dashboard';
+import { Layout } from '@/components/layout';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+  },
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        path: 'home',
+        element: <Dashboard />,
+      },
+      {
+        path: 'item',
+        element: (
+          <div
+            style={{
+              backgroundColor: 'red',
+            }}
+          >
+            하이
+          </div>
+        ),
+      },
+    ],
+  },
+]);
 
 async function enableMocking() {
   if (process.env.NODE_ENV !== 'development') {
@@ -21,7 +53,7 @@ enableMocking().then(() => {
     <React.StrictMode>
       <QueryProvider>
         <Toaster />
-        <App />
+        <RouterProvider router={router} />
       </QueryProvider>
     </React.StrictMode>,
   );
