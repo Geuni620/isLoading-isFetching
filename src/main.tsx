@@ -24,15 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'item',
-        element: (
-          <div
-            style={{
-              backgroundColor: 'red',
-            }}
-          >
-            하이
-          </div>
-        ),
+        element: <div>테스트</div>,
       },
     ],
   },

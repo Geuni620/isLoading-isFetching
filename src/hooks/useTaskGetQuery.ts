@@ -78,5 +78,6 @@ export const useTaskGetQuery = ({ page, size, search }: props) => {
     }),
     queryFn: fetchTask,
     placeholderData: keepPreviousData,
+    // staleTime: 60 * 1000 * 5, // 5min,
   });
 };
