@@ -1,1 +1,1 @@
-cc. [Tanstack-table pagination server-side로 구현하기](https://geuni620.github.io/blog/2024/6/7/tanstack-table-server-side/)
+cc. [isLoading과 isFetching](https://geuni620.github.io/blog/2024/8/11/is-loading-is-fetching/)
